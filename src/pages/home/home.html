@@ -19,6 +19,12 @@
 
 
 <ion-content padding>
-  
-
+  <div *ngFor="let user of userPictures">
+      <img  src="{{user.thumbnailUrl}}">
+      <br>{{user.name}}<br>
+      {{user.street}}
+      <button ion-button (click)="goToUser(user.id,user.thumbnailUrl)">
+        Click me!
+      </button>
+  </div>
 </ion-content>

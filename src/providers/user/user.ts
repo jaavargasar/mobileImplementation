@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Picture} from "../../pages/home/picture";
-import {UserPicture} from "../../pages/home/userPicture";
+// import {UserPicture} from "../../pages/home/userPicture";
 import {User} from "../../pages/home/user";
 
 import {Response} from '@angular/http';
@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map'
 
 import { Http } from '@angular/http';
+import {Post} from '../../pages/page/post';
 /*
   Generated class for the UserProvider provider.
 
@@ -71,27 +72,27 @@ export class UserProvider {
   }
 
 
-  // getPosts(baseUrl,keyword: string): Observable<any>{
-  //   if ( keyword == "undefined") return;
-  //
-  //   return this.http
-  //     .get(baseUrl+keyword)
-  //     .map(this.parseResponsePost)
-  //     .catch((error: any) => Observable.throw(error.json().error || 'Server error getPosts'));
-  // }
-  //
-  // parseResponsePost(response: Response) : Post[]{
-  //   if(!response.json() ) return [];
-  //
-  //   return response.json().map(
-  //     json => new Post(
-  //       json['userId'],
-  //       json['id'],
-  //       json['title'],
-  //       json['body']
-  //     )
-  //   )
-  // }
+  getPosts(baseUrl,keyword: string): Observable<any>{
+    if ( keyword == "undefined") return;
+
+    return this.http
+      .get(baseUrl+keyword)
+      .map(this.parseResponsePost)
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error getPosts'));
+  }
+
+  parseResponsePost(response: Response) : Post[]{
+    if(!response.json() ) return [];
+
+    return response.json().map(
+      json => new Post(
+        json['userId'],
+        json['id'],
+        json['title'],
+        json['body']
+      )
+    )
+  }
 
 
   getComments(baseUrl,keyword: string): Observable<any>{

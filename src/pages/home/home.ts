@@ -103,11 +103,14 @@ export class HomePage {
         break;
       }
     };
+    this.navCtrl.push('Page');
   }
 
 
   getFindPicture():boolean{
     return this.findPicture;
   }
+
+
 
 }
