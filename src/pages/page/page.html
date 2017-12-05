@@ -14,18 +14,24 @@
 
 
 <ion-content padding>
-   <img src="{{photo}}"><br>
-   {{user.name}}.<br>
-   {{user.email}}<br>
-   {{user.street}}<br>
-   Company Name: {{user.companyName}}<br>
-   {{user.catchPhrase}}<br><br>
+
+  <ion-card text-center>
+    <img src="{{photo}}" style="width: 30%;" class="center"><br>
+    {{user.name}}.<br>
+    {{user.email}}<br>
+    {{user.street}}<br>
+    Company Name: {{user.companyName}}<br>
+    {{user.catchPhrase}}<br><br>
+  </ion-card>
+
+
 
   <div *ngFor="let album of albumPhoto, let k=index">
-    <br>Album {{k+1}}: &nbsp; {{album.title}}<br>
-    <div *ngFor="let photos of album.photos">
+    <br>Album {{k+1}}: &nbsp; {{album.title}}<br><br>
+    <div style="display: inline-block;" *ngFor="let photos of album.photos">
       <img src="{{photos.thumbnailUrl}}">
     </div>
+    <br>
   </div>
 
 </ion-content>

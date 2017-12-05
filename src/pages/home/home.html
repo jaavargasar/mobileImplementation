@@ -19,12 +19,17 @@
 
 
 <ion-content padding>
-  <div *ngFor="let user of userPictures">
-      <img  src="{{user.thumbnailUrl}}">
+
+
+
+  <ion-card text-center>
+    <div *ngFor="let user of userPictures" >
+      <img  src="{{user.thumbnailUrl}}" style="width: 45%;" class="center" >
       <br>{{user.name}}<br>
       {{user.street}}
       <button ion-button (click)="goToUser(user.id,user.thumbnailUrl)">
         Click me!
       </button>
-  </div>
+    </div>
+  </ion-card>
 </ion-content>
