@@ -57,6 +57,7 @@ export class UserProvider {
     return response.json().map(
       json => new Picture(
         json['albumId'],
+        json['title'],
         json['url'],
         json['thumbnailUrl'],
       )
